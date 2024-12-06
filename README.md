@@ -25,7 +25,7 @@ REMEMBER: DON'T PUT YOUR OWN USERNAMES/PASSWORDS/AUTH KEYS IN THE README OR ON G
 ______________________
 NODEENV=development
 PORT=8080
-HOST=
+HOST=localhost
 mongoDB=YourMongoURL
 seedDb=true
 secret=YourJWTSecret
