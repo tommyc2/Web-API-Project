@@ -5,7 +5,6 @@ import PageTemplate from "../components/templateMoviePage";
 import { getMovie } from '../api/custom-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
-import Button from '@mui/material/Button'
 
 const MoviePage = (props) => {
     const { id } = useParams();

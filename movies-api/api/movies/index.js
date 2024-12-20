@@ -29,7 +29,8 @@ router.get('/', asyncHandler(async (req, res) => {
 // Get movie details
 router.get('/:id', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id);
-    const movie = await getMovie()
+    console.log("MOVIE ID IS BEING RECEVIED: ", id)
+    const movie = await getMovie(id)
     if (movie) {
         res.status(200).json(movie);
     } else {

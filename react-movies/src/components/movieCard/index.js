@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
-import { Stack } from "@mui/material";
 
 
 export default function MovieCard({ movie, action }) {
