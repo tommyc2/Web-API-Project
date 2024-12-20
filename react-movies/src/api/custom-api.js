@@ -143,6 +143,9 @@ export const getMovieImages = ({ queryKey }) => {
         });
 };
 
+// The only API fetch that is not pulling data from the custom web api from the labs
+// Instead, it is fetching directly from TMDB API
+// This is due to an issue I had with the map function (excerpt section)
 export const getMovieReviews = ({ queryKey }) => {
     const [, idPart] = queryKey;
     const { id } = idPart;
