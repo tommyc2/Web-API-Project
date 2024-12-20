@@ -74,7 +74,7 @@ export const getRecommendedMovies = (args) => {
     const [, idPart] = args.queryKey;
     const { id } = idPart;
     return fetch(
-        ``
+        `http://localhost:8080/api/movies/${id}/tmdb/recommended-movies`
     ).then((response) => {
         if (!response.ok) {
             return response.json().then((error) => {
@@ -94,7 +94,7 @@ export const getSimilarMovies = (args) => {
     const [, idPart] = args.queryKey;
     const { id } = idPart;
     return fetch(
-        ``
+        `http://localhost:8080/api/movies/${id}/tmdb/similar-movies`
     ).then((response) => {
         if (!response.ok) {
             return response.json().then((error) => {

@@ -1,7 +1,7 @@
 import movieModel from './movieModel';
 import asyncHandler from 'express-async-handler';
 import express from 'express';
-import {getGenres, getUpcomingMovies, getMovie, getTrending} from '../tmdb-api';
+import {getGenres, getUpcomingMovies, getMovie, getTrending, getRecommended, getSimilar} from '../tmdb-api';
 
 const router = express.Router();
 
@@ -49,22 +49,22 @@ router.get('/tmdb/genres', asyncHandler(async (req, res) => {
 }));
 
 router.get('/tmdb/trending', asyncHandler(async (req, res) => {
-    const movieGenresList = await getTrending();
-    res.status(200).json(movieGenresList);
+    const trendingMovies = await getTrending();
+    res.status(200).json(trendingMovies);
+}));
+
+router.get('/:id/tmdb/recommended-movies', asyncHandler(async (req, res) => {
+    const id = parseInt(req.params.id);
+    console.log("Movie id for recommended movies: ", id)
+    const recommendedMovies = await getRecommended(id);
+    res.status(200).json(recommendedMovies);
+}));
+
+router.get('/:id/tmdb/similar-movies', asyncHandler(async (req, res) => {
+    const id = parseInt(req.params.id);
+    console.log("Movie id for similar movies: ", id)
+    const movies = await getSimilar(id);
+    res.status(200).json(movies);
 }));
 
 export default router;
-
-/*
-<Route element={<ProtectedRoutes />}>
-    <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
-    <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
-    <Route path="/movies/:id" element={<MoviePage />} />
-    <Route path="/" element={<HomePage />} />
-    <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
-    <Route path="*" element={ <Navigate to="/" /> } />
-    <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
-    <Route path="/movies/trending" element={<TrendingMoviesPage />} />
-    <Route path="/movies/:id/recommendations" element={<RecommendedMoviesPage />} />
-    <Route path="/movies/:id/similar" element={<SimilarMoviesPage />} />
-    */
