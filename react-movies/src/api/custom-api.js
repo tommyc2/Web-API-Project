@@ -54,7 +54,7 @@ export const getUpcomingMovies = () => {
 
 export const getTrendingMovies = () => {
     return fetch(
-        ``
+        `http://localhost:8080/api/movies/tmdb/trending`
     ).then((response) => {
         if (!response.ok) {
             return response.json().then((error) => {
