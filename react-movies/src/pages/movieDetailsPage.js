@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage";
-import { getMovie } from '../api/tmdb-api'
+import { getMovie } from '../api/custom-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 import Button from '@mui/material/Button'

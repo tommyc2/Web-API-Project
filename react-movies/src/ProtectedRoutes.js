@@ -1,10 +1,10 @@
 import React from 'react'
 import {useAuth} from '@clerk/clerk-react'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
-import { Typography, Box, Button } from "@mui/material"
+import { Link, Outlet } from 'react-router-dom'
+import { Typography, Button } from "@mui/material"
 import Grid from "@mui/material/Grid2";
 
-const AuthenticationCheck = () => {
+const ProtectedRoutes = () => {
 
     const { isSignedIn, isLoaded } = useAuth();
 
@@ -41,4 +41,4 @@ const AuthenticationCheck = () => {
     
 }
 
-export default AuthenticationCheck;
+export default ProtectedRoutes;

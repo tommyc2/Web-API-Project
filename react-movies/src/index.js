@@ -16,7 +16,7 @@ import RecommendedMoviesPage from "./pages/recommendedMoviesPage"
 import SimilarMoviesPage from "./pages/similarMoviesPage";
 import AnimatedCursor from "react-animated-cursor"
 import { ClerkProvider, SignIn, SignUp } from '@clerk/clerk-react'
-import AuthenticationCheck from "./components/auth";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const clerk_key = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY
 
@@ -62,7 +62,7 @@ const App = () => {
                 <Route path="/sign-in" element={<SignIn signUpUrl="/sign-up" afterSignInUrl="/" />} />
                 <Route path="/sign-up" element={<SignUp signInUrl="/sign-in" afterSignUpUrl="/" />} />
 
-                <Route element={<AuthenticationCheck />}>
+                <Route element={<ProtectedRoutes />}>
                     <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
                     <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
                     <Route path="/movies/:id" element={<MoviePage />} />

@@ -29,7 +29,7 @@ router.get('/', asyncHandler(async (req, res) => {
 // Get movie details
 router.get('/:id', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id);
-    const movie = await movieModel.findByMovieDBId(id);
+    const movie = await getMovie()
     if (movie) {
         res.status(200).json(movie);
     } else {
@@ -48,3 +48,17 @@ router.get('/tmdb/genres', asyncHandler(async (req, res) => {
 }));
 
 export default router;
+
+/*
+<Route element={<ProtectedRoutes />}>
+    <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+    <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
+    <Route path="/movies/:id" element={<MoviePage />} />
+    <Route path="/" element={<HomePage />} />
+    <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
+    <Route path="*" element={ <Navigate to="/" /> } />
+    <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
+    <Route path="/movies/trending" element={<TrendingMoviesPage />} />
+    <Route path="/movies/:id/recommendations" element={<RecommendedMoviesPage />} />
+    <Route path="/movies/:id/similar" element={<SimilarMoviesPage />} />
+    */
