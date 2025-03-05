@@ -1,8 +1,6 @@
-# Web API Project
-<i> Assignment 2 - Web API</i>
+# Movies API
 
 Name: Tommy Condon
-Student Number: 20101841
 Course: BSc Applied Computing Year 3 (IoT)
 
 ## Features.
